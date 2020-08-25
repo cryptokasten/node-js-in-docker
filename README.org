@@ -1,0 +1,30 @@
+#+TITLE: Node.js in docker
+#+PROPERTY: header-args:sh :session *shell node-js-in-docker sh* :results silent raw
+#+OPTIONS: ^:nil
+
+** System environment
+
+- CentOS 8.1
+
+- Docker 19.03
+
+- Docker image: node:10-stretch
+
+** Pull node image
+
+#+BEGIN_SRC sh
+docker image pull node:10-stretch
+#+END_SRC
+
+** Run interactive shell
+
+The current directory will be mounted to =/code= directory in the
+container.
+
+#+BEGIN_SRC sh
+docker run --rm -v `pwd`:/code -it node:10-stretch bash
+#+END_SRC
+
+** References
+
+1. https://github.com/cryptokasten/docker-image-pull
